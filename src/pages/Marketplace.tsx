@@ -5,6 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 import { CreateListing } from '../components/CreateListing';
 import { ListingCard } from '../components/ListingCard';
 import { useAuth } from '../context/AuthContext';
+import { useScrollDirection } from '../hooks/useScrollDirection';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -129,6 +130,7 @@ const Marketplace = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const location = useLocation();
   const itemsPerPage = 10;
+  const { scrollDirection, isAtTop } = useScrollDirection();
 
   // Check if we're on any marketplace page
   const isMarketplacePage = location.pathname.startsWith('/marketplace');
@@ -247,8 +249,8 @@ const Marketplace = () => {
 
   return (
     <div>
-      {/* RecycleMart Header with Navigation - ALWAYS visible on ALL marketplace pages */}
-      <div className="bg-white border-b border-gray-200 sticky top-16 z-40">
+      {/* RecycleMart Header - ALWAYS visible on ALL marketplace pages */}
+      <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-6">
             <div>
@@ -267,8 +269,17 @@ const Marketplace = () => {
               </button>
             )}
           </div>
+        </div>
+      </div>
 
-          {/* Enhanced Navigation Tabs - ALWAYS visible on ALL marketplace pages */}
+      {/* Enhanced Navigation Tabs with Scroll Behavior */}
+      <div 
+        className={`
+          sticky top-16 z-40 bg-white border-b border-gray-200 transition-transform duration-300 ease-in-out
+          ${scrollDirection === 'down' && !isAtTop ? '-translate-y-full' : 'translate-y-0'}
+        `}
+      >
+        <div className="max-w-7xl mx-auto px-4">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             {/* Desktop Navigation */}
             <div className="hidden md:flex">
