@@ -26,9 +26,11 @@ import ContainerRequests from './pages/dashboard/ContainerRequests';
 import Profile from './pages/dashboard/Profile';
 import TrackRequest from './pages/TrackRequest';
 import { useScrollToTop } from './hooks/useScrollToTop';
+import { useSEO } from './hooks/useSEO';
 
 function AppContent() {
   useScrollToTop();
+  useSEO();
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -36,7 +38,7 @@ function AppContent() {
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/marketplace/*" element={<Marketplace />} />
           <Route path="/marketplace/prices" element={<LivePrices />} />
           <Route path="/marketplace/materials" element={<Materials />} />
           <Route path="/marketplace/recyclers" element={<Recyclers />} />
