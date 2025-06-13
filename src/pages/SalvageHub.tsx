@@ -91,10 +91,13 @@ const SalvageHub = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Hero Section */}
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold mb-4">Equipment & Parts Shop</h1>
-          <p className="text-gray-600 max-w-2xl">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
+        <div className="text-center lg:text-left">
+          <h1 className="text-3xl font-bold mb-4">SalvageHub</h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
+            Equipment & Parts Shop
+          </p>
+          <p className="text-gray-600 max-w-2xl mx-auto lg:mx-0 mt-2">
             South Africa's premier marketplace for quality used vehicles, machinery, and parts. 
             All items verified by professional assessors.
           </p>
@@ -102,7 +105,7 @@ const SalvageHub = () => {
         {user && (
           <button
             onClick={() => setShowCreateListing(true)}
-            className="flex items-center gap-2 bg-[#FF3B81] text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition shadow-sm"
+            className="flex items-center gap-2 bg-[#FF3B81] text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition shadow-sm lg:self-start mx-auto lg:mx-0"
           >
             <Plus className="w-5 h-5" />
             Post Listing
