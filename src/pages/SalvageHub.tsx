@@ -89,17 +89,17 @@ const SalvageHub = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pt-32 pb-8">
       {/* Vibrant Hero Section with Dynamic Background */}
       <div className="relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
           <div className="absolute inset-0 bg-gradient-to-r from-[#FF3B81]/20 via-purple-600/20 to-blue-600/20"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative max-w-7xl mx-auto px-4 py-24">
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 py-20">
           <div className="text-center mb-16">
             <div className="mb-8">
               {/* Glowing Title */}
@@ -158,7 +158,7 @@ const SalvageHub = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Error Message */}
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg mb-8">
@@ -237,7 +237,7 @@ const SalvageHub = () => {
         {/* Enhanced Trust Indicators */}
         <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden">
           {/* Background Pattern */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23f3f4f6\" fill-opacity=\"0.4\"%3E%3Ccircle cx=\"20\" cy=\"20\" r=\"1\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f3f4f6" fill-opacity="0.4"%3E%3Ccircle cx="20" cy="20" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
           
           <div className="relative">
             <div className="text-center mb-12">
