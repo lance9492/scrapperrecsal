@@ -89,7 +89,7 @@ const SalvageHub = () => {
   };
 
   return (
-    <div className="pt-32 pb-8">
+    <div className="min-h-screen bg-gray-50">
       {/* Vibrant Hero Section with Dynamic Background */}
       <div className="relative overflow-hidden">
         {/* Animated Background */}
@@ -99,7 +99,7 @@ const SalvageHub = () => {
         </div>
 
         {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
+        <div className="relative max-w-7xl mx-auto px-4 py-24">
           <div className="text-center mb-16">
             <div className="mb-8">
               {/* Glowing Title */}
@@ -158,7 +158,7 @@ const SalvageHub = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Error Message */}
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg mb-8">
