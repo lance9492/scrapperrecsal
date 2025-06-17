@@ -272,7 +272,7 @@ const Marketplace = () => {
         </div>
       </div>
 
-      {/* Enhanced Navigation Tabs with Scroll Behavior */}
+      {/* Enhanced Navigation Tabs with Scroll Behavior - ALWAYS visible on ALL marketplace pages */}
       <div 
         className={`
           sticky top-16 z-40 bg-white border-b border-gray-200 transition-transform duration-300 ease-in-out
