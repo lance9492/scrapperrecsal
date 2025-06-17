@@ -90,38 +90,44 @@ const SalvageHub = () => {
 
   return (
     <div className="pt-24 pb-8">
-      {/* Professional Header Section with gradient background */}
-      <div className="relative bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-20"></div>
+      {/* Professional Header Section with pink and black gradient */}
+      <div className="relative bg-gradient-to-br from-black via-gray-900 to-pink-600 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-pink-500/10 to-transparent"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-pink-400/5 rounded-full blur-2xl"></div>
+        </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 py-16">
+        <div className="relative max-w-7xl mx-auto px-4 py-20">
           <div className="text-center">
             <div className="mb-8">
-              {/* Icon with background */}
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-2xl mb-6 shadow-xl">
+              {/* Icon with pink accent */}
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl mb-6 shadow-2xl border border-pink-400/20">
                 <Tool className="w-10 h-10 text-white" />
               </div>
               
-              {/* Main title with better sizing and contrast */}
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                SalvageHub
+              {/* Main title with pink accent */}
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                <span className="bg-gradient-to-r from-white to-pink-200 bg-clip-text text-transparent">
+                  SalvageHub
+                </span>
               </h1>
               
-              {/* Accent line */}
-              <div className="w-24 h-1 bg-gradient-to-r from-[#FF3B81] to-purple-600 mx-auto mb-6 rounded-full shadow-lg"></div>
+              {/* Pink accent line */}
+              <div className="w-32 h-1 bg-gradient-to-r from-pink-500 to-pink-400 mx-auto mb-6 rounded-full shadow-lg"></div>
               
-              {/* Description with better contrast */}
-              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
+              {/* Description with enhanced contrast */}
+              <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed mb-8 font-light">
                 South Africa's premier marketplace for quality used vehicles, machinery, and parts. 
                 All items verified by professional assessors.
               </p>
               
-              {/* Call to action button */}
+              {/* Call to action button with pink theme */}
               {user && (
                 <button
                   onClick={() => setShowCreateListing(true)}
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FF3B81] to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold text-lg shadow-xl"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-pink-600 text-white px-8 py-4 rounded-xl hover:shadow-2xl hover:from-pink-600 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 font-semibold text-lg shadow-xl border border-pink-400/20"
                 >
                   <Plus className="w-5 h-5" />
                   Post New Listing
@@ -130,6 +136,9 @@ const SalvageHub = () => {
             </div>
           </div>
         </div>
+        
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
       </div>
 
       {/* Main content area */}
@@ -175,7 +184,7 @@ const SalvageHub = () => {
               {user && (
                 <button
                   onClick={() => setShowCreateListing(true)}
-                  className="inline-flex items-center gap-2 bg-[#FF3B81] text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors"
+                  className="inline-flex items-center gap-2 bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors"
                 >
                   <Plus className="w-5 h-5" />
                   Create First Listing
@@ -206,7 +215,7 @@ const SalvageHub = () => {
           )}
         </div>
 
-        {/* Trust Indicators */}
+        {/* Trust Indicators with pink accents */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">Why Choose SalvageHub?</h2>
@@ -217,7 +226,7 @@ const SalvageHub = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Verified Sellers</h3>
@@ -227,7 +236,7 @@ const SalvageHub = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Quality Assurance</h3>
@@ -237,7 +246,7 @@ const SalvageHub = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Secure Trading</h3>
