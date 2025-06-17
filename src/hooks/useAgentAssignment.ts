@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabaseClient';
-import { useAuth } from './useAuth';
+import { useAuth } from '../context/AuthContext';
 
 export interface SalesAgent {
   id: string;
