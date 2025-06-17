@@ -1,17 +1,86 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, BarChart3, Zap, ShieldCheck } from 'lucide-react';
+import { Users, BarChart3, Zap, ShieldCheck, Truck, Settings, Cog, Wrench, PenTool as Tool } from 'lucide-react';
 import { MarketInsights } from '../components/MarketInsights';
 
 const Home = () => {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
+      {/* Hero Section with Industrial Watermarks */}
       <section className="relative">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-gradient-to-r from-[#1A1A1A] to-[#FF3B81]"></div>
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
         </div>
+        
+        {/* Industrial watermarks background */}
+        <div className="absolute inset-0 opacity-5">
+          {/* Vehicle watermarks */}
+          <div className="absolute top-8 left-12 transform rotate-15">
+            <Truck className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute top-24 right-16 transform -rotate-20">
+            <Truck className="w-28 h-28 text-white" />
+          </div>
+          <div className="absolute bottom-16 left-1/4 transform rotate-35">
+            <Truck className="w-18 h-18 text-white" />
+          </div>
+          <div className="absolute top-1/3 right-1/4 transform -rotate-25">
+            <Truck className="w-24 h-24 text-white" />
+          </div>
+          
+          {/* Engine/machinery watermarks */}
+          <div className="absolute top-16 left-1/3 transform -rotate-40">
+            <Settings className="w-26 h-26 text-white" />
+          </div>
+          <div className="absolute bottom-28 right-1/3 transform rotate-15">
+            <Settings className="w-32 h-32 text-white" />
+          </div>
+          <div className="absolute top-1/2 left-20 transform -rotate-10">
+            <Cog className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute bottom-12 right-12 transform rotate-50">
+            <Cog className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute top-2/3 left-1/2 transform rotate-25">
+            <Settings className="w-24 h-24 text-white" />
+          </div>
+          
+          {/* Mining/industrial equipment watermarks */}
+          <div className="absolute top-32 right-1/5 transform rotate-45">
+            <Zap className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute bottom-32 left-1/2 transform -rotate-35">
+            <Wrench className="w-28 h-28 text-white" />
+          </div>
+          <div className="absolute top-1/4 right-8 transform rotate-65">
+            <Tool className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute bottom-1/3 left-16 transform -rotate-20">
+            <Wrench className="w-18 h-18 text-white" />
+          </div>
+          <div className="absolute top-3/4 right-1/3 transform rotate-30">
+            <Zap className="w-16 h-16 text-white" />
+          </div>
+          
+          {/* Additional scattered elements for depth */}
+          <div className="absolute top-12 left-2/3 transform -rotate-12">
+            <Tool className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute bottom-20 left-1/5 transform rotate-70">
+            <Cog className="w-14 h-14 text-white" />
+          </div>
+          <div className="absolute top-1/5 right-2/3 transform -rotate-55">
+            <Wrench className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute bottom-1/4 right-1/5 transform rotate-40">
+            <Settings className="w-18 h-18 text-white" />
+          </div>
+          <div className="absolute top-2/5 left-8 transform -rotate-30">
+            <Zap className="w-24 h-24 text-white" />
+          </div>
+        </div>
+        
         <div className="relative py-20 px-4">
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
