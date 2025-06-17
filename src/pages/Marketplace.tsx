@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import { ChevronDown, ChevronRight, LineChart, Package, Users, Truck, Scale, Clock, Shield, Search, Menu as MenuIcon, Plus, Recycle, Settings, Cog, Wrench, PenTool as Tool, Zap } from 'lucide-react';
+import { ChevronDown, ChevronRight, LineChart, Package, Users, Truck, Scale, Clock, Shield, Search, Menu as MenuIcon, Plus, Recycle, Settings, Cog, Wrench, PenTool as Tool, Zap, ArrowLeft } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { CreateListing } from '../components/CreateListing';
 import { ListingCard } from '../components/ListingCard';
@@ -720,7 +720,19 @@ const Marketplace = () => {
           </>
         ) : (
           /* For all other marketplace pages (prices, materials, recyclers), show the outlet content */
-          <Outlet />
+          <div>
+            {/* Back button for sub-pages */}
+            <div className="mb-6">
+              <Link 
+                to="/marketplace" 
+                className="inline-flex items-center gap-2 text-[#FF3B81] hover:text-pink-700 font-medium transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back to RecycleMart</span>
+              </Link>
+            </div>
+            <Outlet />
+          </div>
         )}
       </div>
 
