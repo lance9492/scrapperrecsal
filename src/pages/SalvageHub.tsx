@@ -89,34 +89,51 @@ const SalvageHub = () => {
   };
 
   return (
-    <div className="pt-32 pb-8">
-      {/* Professional Header Section with proper spacing */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="mb-8">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              SalvageHub
-            </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-[#FF3B81] to-purple-600 mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              South Africa's premier marketplace for quality used vehicles, machinery, and parts. 
-              All items verified by professional assessors.
-            </p>
-          </div>
-          
-          {user && (
-            <div className="flex justify-center">
-              <button
-                onClick={() => setShowCreateListing(true)}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FF3B81] to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold text-lg"
-              >
-                <Plus className="w-6 h-6" />
-                Post New Listing
-              </button>
+    <div className="pt-24 pb-8">
+      {/* Professional Header Section with gradient background */}
+      <div className="relative bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 py-16">
+          <div className="text-center">
+            <div className="mb-8">
+              {/* Icon with background */}
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-2xl mb-6 shadow-xl">
+                <Tool className="w-10 h-10 text-white" />
+              </div>
+              
+              {/* Main title with better sizing and contrast */}
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                SalvageHub
+              </h1>
+              
+              {/* Accent line */}
+              <div className="w-24 h-1 bg-gradient-to-r from-[#FF3B81] to-purple-600 mx-auto mb-6 rounded-full shadow-lg"></div>
+              
+              {/* Description with better contrast */}
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8">
+                South Africa's premier marketplace for quality used vehicles, machinery, and parts. 
+                All items verified by professional assessors.
+              </p>
+              
+              {/* Call to action button */}
+              {user && (
+                <button
+                  onClick={() => setShowCreateListing(true)}
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FF3B81] to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold text-lg shadow-xl"
+                >
+                  <Plus className="w-5 h-5" />
+                  Post New Listing
+                </button>
+              )}
             </div>
-          )}
+          </div>
         </div>
+      </div>
 
+      {/* Main content area */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Error Message */}
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg mb-8">
