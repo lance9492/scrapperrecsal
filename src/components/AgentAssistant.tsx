@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MessageCircle, Phone, Mail, Star, Send, X, User, Clock } from 'lucide-react';
 import { useAgentAssignment } from '../hooks/useAgentAssignment';
 import { formatRelativeTime } from '../utils/formatters';
+import { useAuth } from '../context/AuthContext';
 
 interface AgentAssistantProps {
   listingId: string;
