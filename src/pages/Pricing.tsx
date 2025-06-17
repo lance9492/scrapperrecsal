@@ -1,17 +1,96 @@
 import React from 'react';
-import { ShoppingBag, Store, Zap, Shield, TrendingUp, Package } from 'lucide-react';
+import { ShoppingBag, Store, Zap, Shield, TrendingUp, Package, Recycle, Settings, Cog, Wrench, PenTool as Tool, Truck, Scale, Clock } from 'lucide-react';
 
 const Pricing = () => {
   return (
     <div className="pt-24 pb-8"> {/* Added pt-24 for navbar spacing */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold mb-4">Simple, Transparent Pricing</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Whether you're buying or selling, our pricing structure is designed to be fair and straightforward.
-          </p>
+      {/* Pink & Black 2-tone background with watermarks */}
+      <div className="relative overflow-hidden">
+        {/* Main gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-600 via-gray-900 to-black opacity-90"></div>
+        
+        {/* Watermarks - Industrial & Recycling Theme */}
+        <div className="absolute inset-0 opacity-5">
+          {/* Money/pricing watermarks */}
+          <div className="absolute top-8 left-12 transform rotate-15">
+            <ShoppingBag className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute top-32 right-20 transform -rotate-20">
+            <Store className="w-32 h-32 text-white" />
+          </div>
+          <div className="absolute bottom-20 left-1/4 transform rotate-45">
+            <TrendingUp className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute top-1/2 right-1/3 transform -rotate-30">
+            <Shield className="w-28 h-28 text-white" />
+          </div>
+          
+          {/* Recycling watermarks */}
+          <div className="absolute top-16 left-1/3 transform -rotate-40">
+            <Recycle className="w-26 h-26 text-white" />
+          </div>
+          <div className="absolute bottom-32 right-1/4 transform rotate-15">
+            <Package className="w-36 h-36 text-white" />
+          </div>
+          <div className="absolute top-2/3 left-16 transform -rotate-10">
+            <Truck className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute bottom-12 right-12 transform rotate-50">
+            <Scale className="w-20 h-20 text-white" />
+          </div>
+          
+          {/* Industrial machinery watermarks */}
+          <div className="absolute top-24 right-1/5 transform rotate-25">
+            <Settings className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute bottom-40 left-1/2 transform -rotate-35">
+            <Cog className="w-30 h-30 text-white" />
+          </div>
+          <div className="absolute top-1/3 right-8 transform rotate-65">
+            <Wrench className="w-18 h-18 text-white" />
+          </div>
+          
+          {/* Additional scattered elements for depth */}
+          <div className="absolute top-40 left-2/3 transform -rotate-25">
+            <Tool className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute bottom-24 left-1/5 transform rotate-40">
+            <Clock className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute top-1/5 right-2/3 transform -rotate-55">
+            <Zap className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute bottom-1/3 right-1/5 transform rotate-30">
+            <Package className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute top-3/4 left-8 transform -rotate-20">
+            <ShoppingBag className="w-26 h-26 text-white" />
+          </div>
         </div>
+        
+        {/* Animated floating elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-pink-300/10 rounded-full blur-xl animate-pulse delay-500"></div>
+        </div>
+        
+        {/* Hero Section */}
+        <div className="relative max-w-7xl mx-auto px-4 py-16">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl mb-6 shadow-2xl transform rotate-12 hover:rotate-0 transition-transform duration-500 border border-pink-400/30">
+              <TrendingUp className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Simple, Transparent Pricing</h1>
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 via-pink-300 to-white mx-auto mb-8 rounded-full shadow-lg"></div>
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto">
+              Whether you're buying or selling, our pricing structure is designed to be fair and straightforward.
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 py-8 -mt-8">
         {/* Seller Pricing */}
         <div className="mb-16">
           <div className="flex items-center gap-2 mb-8">
