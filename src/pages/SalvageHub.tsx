@@ -90,26 +90,29 @@ const SalvageHub = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
-        <div className="text-center lg:text-left">
-          <h1 className="text-3xl font-bold mb-4">SalvageHub</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0">
-            Equipment & Parts Shop
-          </p>
-          <p className="text-gray-600 max-w-2xl mx-auto lg:mx-0 mt-2">
+      {/* Professional Header Section */}
+      <div className="text-center mb-12">
+        <div className="mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            SalvageHub
+          </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#FF3B81] to-purple-600 mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             South Africa's premier marketplace for quality used vehicles, machinery, and parts. 
             All items verified by professional assessors.
           </p>
         </div>
+        
         {user && (
-          <button
-            onClick={() => setShowCreateListing(true)}
-            className="flex items-center gap-2 bg-[#FF3B81] text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition shadow-sm lg:self-start mx-auto lg:mx-0"
-          >
-            <Plus className="w-5 h-5" />
-            Post Listing
-          </button>
+          <div className="flex justify-center">
+            <button
+              onClick={() => setShowCreateListing(true)}
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FF3B81] to-purple-600 text-white px-8 py-4 rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold"
+            >
+              <Plus className="w-5 h-5" />
+              Post New Listing
+            </button>
+          </div>
         )}
       </div>
 
@@ -120,9 +123,14 @@ const SalvageHub = () => {
         </div>
       )}
 
-      {/* Listings Grid */}
+      {/* Listings Section */}
       <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Latest Listings</h2>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold text-gray-900">Latest Listings</h2>
+          <div className="text-sm text-gray-500">
+            {listings.length} {listings.length === 1 ? 'listing' : 'listings'} available
+          </div>
+        </div>
         
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -138,17 +146,20 @@ const SalvageHub = () => {
             ))}
           </div>
         ) : listings.length === 0 ? (
-          <div className="text-center py-12">
-            <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+          <div className="text-center py-16">
+            <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
               <Tool className="w-12 h-12 text-gray-400" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">No listings found</h3>
-            <p className="text-gray-600 mb-6">Be the first to post a salvage listing!</p>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-3">No listings found</h3>
+            <p className="text-gray-600 mb-8 max-w-md mx-auto">
+              Be the first to post a salvage listing and connect with buyers across South Africa.
+            </p>
             {user && (
               <button
                 onClick={() => setShowCreateListing(true)}
-                className="bg-[#FF3B81] text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition"
+                className="inline-flex items-center gap-2 bg-[#FF3B81] text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition-colors"
               >
+                <Plus className="w-5 h-5" />
                 Create First Listing
               </button>
             )}
@@ -178,35 +189,43 @@ const SalvageHub = () => {
       </div>
 
       {/* Trust Indicators */}
-      <div className="bg-white rounded-lg shadow-sm p-8">
-        <h2 className="text-xl font-bold mb-8 text-center">Why Choose SalvageHub?</h2>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">Why Choose SalvageHub?</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We ensure quality, security, and reliability in every transaction
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex items-start">
-            <Shield className="w-8 h-8 text-[#FF3B81] mr-4 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold mb-2">Verified Sellers</h3>
-              <p className="text-gray-600">
-                All sellers undergo strict verification. Business credentials and track record checked.
-              </p>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Shield className="w-8 h-8 text-white" />
             </div>
+            <h3 className="font-semibold text-gray-900 mb-2">Verified Sellers</h3>
+            <p className="text-gray-600 text-sm">
+              All sellers undergo strict verification. Business credentials and track record checked.
+            </p>
           </div>
-          <div className="flex items-start">
-            <Star className="w-8 h-8 text-[#FF3B81] mr-4 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold mb-2">Quality Assurance</h3>
-              <p className="text-gray-600">
-                Professional assessment of all listed items. Detailed condition reports available.
-              </p>
+          
+          <div className="text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-[#FF3B81] to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Star className="w-8 h-8 text-white" />
             </div>
+            <h3 className="font-semibold text-gray-900 mb-2">Quality Assurance</h3>
+            <p className="text-gray-600 text-sm">
+              Professional assessment of all listed items. Detailed condition reports available.
+            </p>
           </div>
-          <div className="flex items-start">
-            <Clock className="w-8 h-8 text-[#FF3B81] mr-4 flex-shrink-0" />
-            <div>
-              <h3 className="font-semibold mb-2">Secure Trading</h3>
-              <p className="text-gray-600">
-                Protected payments and verified transactions. Full buyer protection on all purchases.
-              </p>
+          
+          <div className="text-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-[FF3B81] to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Clock className="w-8 h-8 text-white" />
             </div>
+            <h3 className="font-semibold text-gray-900 mb-2">Secure Trading</h3>
+            <p className="text-gray-600 text-sm">
+              Protected payments and verified transactions. Full buyer protection on all purchases.
+            </p>
           </div>
         </div>
       </div>
