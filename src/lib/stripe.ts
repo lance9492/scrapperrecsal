@@ -1,8 +1,17 @@
 import { loadStripe } from '@stripe/stripe-js';
 
-export const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+// Only initialize Stripe if we have a valid publishable key
+const stripePublishableKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+
+export const stripePromise = stripePublishableKey && stripePublishableKey.startsWith('pk_') 
+  ? loadStripe(stripePublishableKey)
+  : null;
 
 export const createPaymentIntent = async (amount: number) => {
+  if (!stripePromise) {
+    throw new Error('Stripe is not configured. Please check your VITE_STRIPE_PUBLISHABLE_KEY environment variable.');
+  }
+
   try {
     const response = await fetch('/.netlify/functions/create-payment-intent', {
       method: 'POST',
@@ -24,6 +33,10 @@ export const createPaymentIntent = async (amount: number) => {
 };
 
 export const processPayment = async (paymentMethodId: string, amount: number) => {
+  if (!stripePromise) {
+    throw new Error('Stripe is not configured. Please check your VITE_STRIPE_PUBLISHABLE_KEY environment variable.');
+  }
+
   try {
     const response = await fetch('/.netlify/functions/process-payment', {
       method: 'POST',
