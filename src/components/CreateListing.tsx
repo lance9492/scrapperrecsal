@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Upload, AlertCircle } from 'lucide-react';
+import { X, Upload, AlertCircle, CheckCircle, User } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 import { useAuth } from '../context/AuthContext';
 
@@ -35,6 +35,7 @@ export const CreateListing = ({ type, onClose, onSuccess }: CreateListingProps) 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [agentAssigned, setAgentAssigned] = useState(false);
   const [images, setImages] = useState<string[]>([]);
   const [formData, setFormData] = useState({
     title: '',
@@ -107,12 +108,13 @@ export const CreateListing = ({ type, onClose, onSuccess }: CreateListingProps) 
       }
 
       setSuccess('Listing created successfully!');
+      setAgentAssigned(true);
       
       // Wait a moment to show success message
       setTimeout(() => {
         onSuccess();
         onClose();
-      }, 1500);
+      }, 3000);
 
     } catch (err: any) {
       console.error('Error creating listing:', err);
@@ -164,11 +166,25 @@ export const CreateListing = ({ type, onClose, onSuccess }: CreateListingProps) 
           )}
 
           {success && (
-            <div className="bg-green-50 border border-green-200 text-green-600 p-4 rounded-lg mb-6 flex items-start">
-              <div className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 bg-green-500 rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
+            <div className="bg-green-50 border border-green-200 text-green-600 p-4 rounded-lg mb-6">
+              <div className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold">{success}</p>
+                  {agentAssigned && (
+                    <div className="mt-3 p-3 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border border-pink-200">
+                      <div className="flex items-center gap-2 mb-2">
+                        <User className="w-4 h-4 text-pink-600" />
+                        <span className="font-medium text-pink-800">Sales Agent Assigned!</span>
+                      </div>
+                      <p className="text-sm text-pink-700">
+                        A dedicated sales agent has been automatically assigned to help you with your listing. 
+                        They will contact you shortly to assist with pricing, marketing, and finding the right buyers.
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
-              <span>{success}</span>
             </div>
           )}
 

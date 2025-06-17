@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { User, LogOut, Settings, Package, Truck } from 'lucide-react';
+import { User, LogOut, Settings, Package, Truck, Users } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const UserMenu: React.FC = () => {
@@ -121,6 +121,15 @@ const UserMenu: React.FC = () => {
           >
             <Package className="w-4 h-4 mr-2" />
             My Containers
+          </Link>
+
+          <Link
+            to="/dashboard/agents"
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+            onClick={() => setIsOpen(false)}
+          >
+            <Users className="w-4 h-4 mr-2" />
+            My Sales Agents
           </Link>
 
           <Link

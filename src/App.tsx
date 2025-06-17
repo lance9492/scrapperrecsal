@@ -24,6 +24,7 @@ import Parts from './pages/salvage/Parts';
 import VehicleStripping from './pages/salvage/VehicleStripping';
 import ContainerRequests from './pages/dashboard/ContainerRequests';
 import Profile from './pages/dashboard/Profile';
+import MyAgents from './pages/dashboard/MyAgents';
 import TrackRequest from './pages/TrackRequest';
 import { useScrollToTop } from './hooks/useScrollToTop';
 import { useSEO } from './hooks/useSEO';
@@ -58,6 +59,7 @@ function AppContent() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/dashboard/containers" element={<ContainerRequests />} />
           <Route path="/dashboard/profile" element={<Profile />} />
+          <Route path="/dashboard/agents" element={<MyAgents />} />
           <Route path="/track/:id" element={<TrackRequest />} />
         </Routes>
       </main>

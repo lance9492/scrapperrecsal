@@ -4,6 +4,7 @@ import { ChevronDown, ChevronRight, LineChart, Package, Users, Truck, Scale, Clo
 import { createClient } from '@supabase/supabase-js';
 import { CreateListing } from '../components/CreateListing';
 import { ListingCard } from '../components/ListingCard';
+import { AgentAssistant } from '../components/AgentAssistant';
 import { useAuth } from '../context/AuthContext';
 import { useScrollDirection } from '../hooks/useScrollDirection';
 
@@ -128,6 +129,7 @@ const Marketplace = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const [selectedListingForAgent, setSelectedListingForAgent] = useState<string | null>(null);
   const location = useLocation();
   const itemsPerPage = 10;
   const { scrollDirection, isAtTop } = useScrollDirection();
@@ -563,22 +565,33 @@ const Marketplace = () => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {listings.map(listing => (
-                    <ListingCard
-                      key={listing.id}
-                      id={listing.id}
-                      title={listing.title}
-                      description={listing.description || ''}
-                      image={listing.images?.[0] || 'https://images.pexels.com/photos/2990644/pexels-photo-2990644.jpeg'}
-                      price={listing.price}
-                      location={listing.location}
-                      seller={{
-                        name: formatSellerName(listing),
-                        rating: 4.5, // This should come from a ratings system
-                        verified: true // This should be based on verification status
-                      }}
-                      type="recycle"
-                      onBidPlaced={fetchListings}
-                    />
+                    <div key={listing.id} className="relative">
+                      <ListingCard
+                        id={listing.id}
+                        title={listing.title}
+                        description={listing.description || ''}
+                        image={listing.images?.[0] || 'https://images.pexels.com/photos/2990644/pexels-photo-2990644.jpeg'}
+                        price={listing.price}
+                        location={listing.location}
+                        seller={{
+                          name: formatSellerName(listing),
+                          rating: 4.5, // This should come from a ratings system
+                          verified: true // This should be based on verification status
+                        }}
+                        type="recycle"
+                        onBidPlaced={fetchListings}
+                      />
+                      {/* Show agent assistant for user's own listings */}
+                      {user && listing.user_id === user.id && (
+                        <button
+                          onClick={() => setSelectedListingForAgent(listing.id)}
+                          className="absolute top-2 right-2 bg-pink-500 text-white p-2 rounded-full shadow-lg hover:bg-pink-600 transition-colors"
+                          title="Chat with your sales agent"
+                        >
+                          <Users className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
@@ -707,6 +720,14 @@ const Marketplace = () => {
           type="recycle"
           onClose={() => setShowCreateListing(false)}
           onSuccess={handleCreateListingSuccess}
+        />
+      )}
+
+      {/* Agent Assistant */}
+      {selectedListingForAgent && (
+        <AgentAssistant
+          listingId={selectedListingForAgent}
+          onClose={() => setSelectedListingForAgent(null)}
         />
       )}
     </div>

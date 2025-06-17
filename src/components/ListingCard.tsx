@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Star, MapPin } from 'lucide-react';
+import { Star, MapPin, Users } from 'lucide-react';
 import { PlaceBid } from './PlaceBid';
+import { AgentAssistant } from './AgentAssistant';
+import { useAuth } from '../context/AuthContext';
 
 interface Seller {
   name: string;
@@ -31,7 +33,9 @@ export const ListingCard = ({
   type,
   onBidPlaced
 }: ListingCardProps) => {
+  const { user } = useAuth();
   const [showBidModal, setShowBidModal] = useState(false);
+  const [showAgentChat, setShowAgentChat] = useState(false);
 
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -67,12 +71,23 @@ export const ListingCard = ({
             <span className="ml-2 text-gray-500">{seller.name}</span>
           </div>
         </div>
-        <button
-          onClick={() => setShowBidModal(true)}
-          className="w-full bg-[#FF3B81] text-white py-2 rounded-lg hover:bg-pink-600 transition"
-        >
-          Place Bid
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setShowBidModal(true)}
+            className="flex-1 bg-[#FF3B81] text-white py-2 rounded-lg hover:bg-pink-600 transition"
+          >
+            Place Bid
+          </button>
+          {user && (
+            <button
+              onClick={() => setShowAgentChat(true)}
+              className="bg-purple-800 text-white p-2 rounded-lg hover:bg-purple-900 transition"
+              title="Get agent assistance"
+            >
+              <Users className="w-5 h-5" />
+            </button>
+          )}
+        </div>
       </div>
 
       {showBidModal && (
@@ -84,6 +99,13 @@ export const ListingCard = ({
             setShowBidModal(false);
             onBidPlaced?.();
           }}
+        />
+      )}
+
+      {showAgentChat && (
+        <AgentAssistant
+          listingId={id}
+          onClose={() => setShowAgentChat(false)}
         />
       )}
     </div>

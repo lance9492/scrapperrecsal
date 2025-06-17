@@ -72,9 +72,9 @@ export const formatPhoneNumber = (phone: string): string => {
 
 export const formatWeight = (weight: number, unit = 'kg'): string => {
   if (weight >= 1000) {
-    return `${(weight / 1000).toFixed(1)} t`;
+    return `${(weight / 1000).toFixed(1)}t`;
   }
-  return `${weight} ${unit}`;
+  return `${weight}${unit}`;
 };
 
 export const truncateText = (text: string, maxLength: number): string => {
