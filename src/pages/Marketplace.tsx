@@ -250,7 +250,7 @@ const Marketplace = () => {
   }
 
   return (
-    <div>
+    <div className="pt-24"> {/* Added pt-24 for navbar spacing */}
       {/* RecycleMart Header - ALWAYS visible on ALL marketplace pages */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 py-6">
@@ -277,7 +277,7 @@ const Marketplace = () => {
       {/* Enhanced Navigation Tabs with Scroll Behavior - ALWAYS visible on ALL marketplace pages */}
       <div 
         className={`
-          sticky top-16 z-40 bg-white border-b border-gray-200 transition-transform duration-300 ease-in-out
+          sticky top-16 z-30 bg-white border-b border-gray-200 transition-transform duration-300 ease-in-out
           ${scrollDirection === 'down' && !isAtTop ? '-translate-y-full' : 'translate-y-0'}
         `}
       >
@@ -343,7 +343,7 @@ const Marketplace = () => {
               </Link>
             </div>
 
-            {/* Mobile Navigation */}
+            {/* Mobile Navigation - Fixed to prevent dropdown interference */}
             <div className="md:hidden">
               <div className="grid grid-cols-2 gap-px bg-gray-100">
                 <Link

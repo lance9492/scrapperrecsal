@@ -188,143 +188,145 @@ const MultiSeriesChart = ({ title, description, data, series }: MultiSeriesChart
 
 const LivePrices = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-2">Live Scrap Metal Prices</h1>
-        <p className="text-gray-600">
-          Real-time scrap metal prices from SA Metals and recycling materials from Mpact. Updated every 15 minutes.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        {Object.entries(priceData).map(([key, data]) => (
-          <PriceCard
-            key={key}
-            title={key.charAt(0).toUpperCase() + key.slice(1)}
-            {...data}
-          />
-        ))}
-      </div>
-
-      {/* Ferrous Metals */}
-      <div className="mb-12">
-        <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-xl font-bold">Ferrous Metals</h2>
+    <div className="pt-0"> {/* Removed extra padding since Marketplace component already adds it */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold mb-2">Live Scrap Metal Prices</h1>
+          <p className="text-gray-600">
+            Real-time scrap metal prices from SA Metals and recycling materials from Mpact. Updated every 15 minutes.
+          </p>
         </div>
-        <MultiSeriesChart
-          title="Steel Grades - Weekly Trend"
-          description="All steel grades including HMS and stainless steel (Past 7 days)"
-          data={steelData}
-          series={[
-            { name: 'HMS 1', color: '#2563eb' },
-            { name: 'HMS 2', color: '#7c3aed' },
-            { name: '304 Stainless', color: '#db2777' },
-            { name: '316 Stainless', color: '#9333ea' }
-          ]}
-        />
-      </div>
 
-      {/* Non-Ferrous Metals */}
-      <div className="mb-12">
-        <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-xl font-bold">Non-Ferrous Metals</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {Object.entries(priceData).map(([key, data]) => (
+            <PriceCard
+              key={key}
+              title={key.charAt(0).toUpperCase() + key.slice(1)}
+              {...data}
+            />
+          ))}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        {/* Ferrous Metals */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <h2 className="text-xl font-bold">Ferrous Metals</h2>
+          </div>
           <MultiSeriesChart
-            title="Copper Grades - Weekly Trend"
-            description="All copper grades including Millberry and ICW (Past 7 days)"
-            data={copperData}
+            title="Steel Grades - Weekly Trend"
+            description="All steel grades including HMS and stainless steel (Past 7 days)"
+            data={steelData}
             series={[
-              { name: 'Millberry', color: '#dc2626' },
-              { name: 'Heavy Copper', color: '#ea580c' },
-              { name: 'Light Copper', color: '#d97706' },
-              { name: 'ICW', color: '#ca8a04' }
-            ]}
-          />
-          <MultiSeriesChart
-            title="Aluminum Grades - Weekly Trend"
-            description="All aluminum grades including extrusions and cast (Past 7 days)"
-            data={aluminumData}
-            series={[
-              { name: 'Clean Extrusions', color: '#0ea5e9' },
-              { name: 'Cast', color: '#06b6d4' },
-              { name: 'Cans', color: '#0891b2' }
-            ]}
-          />
-          <MultiSeriesChart
-            title="Brass Grades - Weekly Trend"
-            description="All brass grades including yellow and red brass (Past 7 days)"
-            data={brassData}
-            series={[
-              { name: 'Yellow Brass', color: '#eab308' },
-              { name: 'Red Brass', color: '#f59e0b' },
-              { name: 'Mixed Brass', color: '#d97706' }
+              { name: 'HMS 1', color: '#2563eb' },
+              { name: 'HMS 2', color: '#7c3aed' },
+              { name: '304 Stainless', color: '#db2777' },
+              { name: '316 Stainless', color: '#9333ea' }
             ]}
           />
         </div>
-      </div>
 
-      {/* Paper Products */}
-      <div className="mb-12">
-        <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-xl font-bold">Paper Products</h2>
+        {/* Non-Ferrous Metals */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <h2 className="text-xl font-bold">Non-Ferrous Metals</h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <MultiSeriesChart
+              title="Copper Grades - Weekly Trend"
+              description="All copper grades including Millberry and ICW (Past 7 days)"
+              data={copperData}
+              series={[
+                { name: 'Millberry', color: '#dc2626' },
+                { name: 'Heavy Copper', color: '#ea580c' },
+                { name: 'Light Copper', color: '#d97706' },
+                { name: 'ICW', color: '#ca8a04' }
+              ]}
+            />
+            <MultiSeriesChart
+              title="Aluminum Grades - Weekly Trend"
+              description="All aluminum grades including extrusions and cast (Past 7 days)"
+              data={aluminumData}
+              series={[
+                { name: 'Clean Extrusions', color: '#0ea5e9' },
+                { name: 'Cast', color: '#06b6d4' },
+                { name: 'Cans', color: '#0891b2' }
+              ]}
+            />
+            <MultiSeriesChart
+              title="Brass Grades - Weekly Trend"
+              description="All brass grades including yellow and red brass (Past 7 days)"
+              data={brassData}
+              series={[
+                { name: 'Yellow Brass', color: '#eab308' },
+                { name: 'Red Brass', color: '#f59e0b' },
+                { name: 'Mixed Brass', color: '#d97706' }
+              ]}
+            />
+          </div>
         </div>
-        <MultiSeriesChart
-          title="Paper Grades - Weekly Trend"
-          description="All paper grades including white paper and cardboard (Past 7 days)"
-          data={paperData}
-          series={[
-            { name: 'White Paper', color: '#0ea5e9' },
-            { name: 'Mixed Paper', color: '#06b6d4' },
-            { name: 'Cardboard', color: '#0891b2' }
-          ]}
-        />
-      </div>
 
-      {/* Plastics */}
-      <div className="mb-12">
-        <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-xl font-bold">Plastics</h2>
+        {/* Paper Products */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <h2 className="text-xl font-bold">Paper Products</h2>
+          </div>
+          <MultiSeriesChart
+            title="Paper Grades - Weekly Trend"
+            description="All paper grades including white paper and cardboard (Past 7 days)"
+            data={paperData}
+            series={[
+              { name: 'White Paper', color: '#0ea5e9' },
+              { name: 'Mixed Paper', color: '#06b6d4' },
+              { name: 'Cardboard', color: '#0891b2' }
+            ]}
+          />
         </div>
-        <MultiSeriesChart
-          title="Plastic Grades - Weekly Trend"
-          description="All plastic grades including HDPE and PET (Past 7 days)"
-          data={plasticsData}
-          series={[
-            { name: 'HDPE Natural', color: '#22c55e' },
-            { name: 'PET Clear', color: '#16a34a' },
-            { name: 'Mixed Plastics', color: '#15803d' }
-          ]}
-        />
-      </div>
 
-      {/* Used Oil */}
-      <div className="mb-12">
-        <div className="flex items-center gap-2 mb-6">
-          <h2 className="text-xl font-bold">Used Oil</h2>
+        {/* Plastics */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <h2 className="text-xl font-bold">Plastics</h2>
+          </div>
+          <MultiSeriesChart
+            title="Plastic Grades - Weekly Trend"
+            description="All plastic grades including HDPE and PET (Past 7 days)"
+            data={plasticsData}
+            series={[
+              { name: 'HDPE Natural', color: '#22c55e' },
+              { name: 'PET Clear', color: '#16a34a' },
+              { name: 'Mixed Plastics', color: '#15803d' }
+            ]}
+          />
         </div>
-        <MultiSeriesChart
-          title="Oil Types - Weekly Trend"
-          description="All oil types including motor and industrial oil (Past 7 days)"
-          data={oilData}
-          series={[
-            { name: 'Motor Oil', color: '#64748b' },
-            { name: 'Industrial Oil', color: '#475569' },
-            { name: 'Transformer Oil', color: '#334155' }
-          ]}
-        />
-      </div>
 
-      <div className="bg-gray-50 rounded-lg p-6">
-        <h3 className="font-semibold mb-2">Price Information</h3>
-        <ul className="text-sm text-gray-600 space-y-2">
-          <li>• Ferrous and non-ferrous metal prices sourced from SA Metals</li>
-          <li>• Paper and plastic prices sourced from Mpact Recycling</li>
-          <li>• Prices are indicative and may vary by location and quality</li>
-          <li>• All prices are in South African Rand (ZAR) per kilogram</li>
-          <li>• Charts show weekly trends with daily price movements</li>
-          <li>• Updates occur every 15 minutes during business hours</li>
-        </ul>
+        {/* Used Oil */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <h2 className="text-xl font-bold">Used Oil</h2>
+          </div>
+          <MultiSeriesChart
+            title="Oil Types - Weekly Trend"
+            description="All oil types including motor and industrial oil (Past 7 days)"
+            data={oilData}
+            series={[
+              { name: 'Motor Oil', color: '#64748b' },
+              { name: 'Industrial Oil', color: '#475569' },
+              { name: 'Transformer Oil', color: '#334155' }
+            ]}
+          />
+        </div>
+
+        <div className="bg-gray-50 rounded-lg p-6">
+          <h3 className="font-semibold mb-2">Price Information</h3>
+          <ul className="text-sm text-gray-600 space-y-2">
+            <li>• Ferrous and non-ferrous metal prices sourced from SA Metals</li>
+            <li>• Paper and plastic prices sourced from Mpact Recycling</li>
+            <li>• Prices are indicative and may vary by location and quality</li>
+            <li>• All prices are in South African Rand (ZAR) per kilogram</li>
+            <li>• Charts show weekly trends with daily price movements</li>
+            <li>• Updates occur every 15 minutes during business hours</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -134,169 +134,171 @@ const Recyclers = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold mb-2">Recycling Facilities</h1>
-        <p className="text-gray-600">
-          Find verified recycling facilities across South Africa. Filter by location and materials accepted.
-        </p>
-      </div>
-
-      {/* Map Section */}
-      <div className="mb-8 bg-white rounded-lg shadow-sm overflow-hidden">
-        <Map 
-          center={mapCenter}
-          zoom={mapZoom}
-          markers={validRecyclersForMap.map(recycler => ({
-            position: { lat: recycler.latitude, lng: recycler.longitude },
-            title: recycler.name
-          }))}
-        />
-        {selectedRecycler && (
-          <div className="p-4 border-t">
-            <button
-              onClick={handleMapReset}
-              className="text-sm text-purple-800 hover:text-purple-900"
-            >
-              ← View all facilities
-            </button>
-          </div>
-        )}
-      </div>
-
-      {/* Search and Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          <input
-            type="text"
-            placeholder="Search recyclers..."
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+    <div className="pt-0"> {/* Removed extra padding since Marketplace component already adds it */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold mb-2">Recycling Facilities</h1>
+          <p className="text-gray-600">
+            Find verified recycling facilities across South Africa. Filter by location and materials accepted.
+          </p>
         </div>
-        <select
-          className="w-full px-4 py-2 border border-gray-200 rounded-lg"
-          value={selectedProvince}
-          onChange={(e) => setSelectedProvince(e.target.value)}
-        >
-          {provinces.map(province => (
-            <option key={province} value={province}>{province}</option>
-          ))}
-        </select>
-        <select
-          className="w-full px-4 py-2 border border-gray-200 rounded-lg"
-          value={selectedMaterial}
-          onChange={(e) => setSelectedMaterial(e.target.value)}
-        >
-          {materials.map(material => (
-            <option key={material} value={material}>{material}</option>
-          ))}
-        </select>
-      </div>
 
-      {/* Recyclers List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {loading ? (
-          <div className="col-span-2 text-center py-12">
-            <p className="text-gray-600">Loading recyclers...</p>
-          </div>
-        ) : filteredRecyclers.length === 0 ? (
-          <div className="col-span-2 text-center py-12">
-            <p className="text-gray-600">No recyclers found matching your criteria.</p>
-          </div>
-        ) : (
-          filteredRecyclers.map((recycler) => (
-            <div
-              key={recycler.id}
-              className={`bg-white rounded-lg shadow-sm p-6 cursor-pointer transition-all ${
-                selectedRecycler?.id === recycler.id ? 'ring-2 ring-purple-800' : ''
-              }`}
-              onClick={() => handleRecyclerClick(recycler)}
-            >
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-lg font-semibold">{recycler.name}</h3>
-                  <p className="text-gray-600">{recycler.description}</p>
-                </div>
-                {recycler.verified && (
-                  <span className="bg-green-100 text-green-600 text-sm px-2 py-1 rounded">
-                    Verified
-                  </span>
-                )}
-              </div>
-
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center text-gray-600">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>{recycler.address}, {recycler.city}</span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span>{recycler.phone}</span>
-                </div>
-                <div className="flex items-center text-gray-600">
-                  <Mail className="w-4 h-4 mr-2" />
-                  <span>{recycler.email}</span>
-                </div>
-                {recycler.website && (
-                  <div className="flex items-center text-gray-600">
-                    <Globe className="w-4 h-4 mr-2" />
-                    <a 
-                      href={recycler.website.startsWith('http') ? recycler.website : `https://${recycler.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-purple-800 hover:text-purple-900"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {recycler.website}
-                    </a>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {recycler.materials.map((material) => (
-                  <span
-                    key={material}
-                    className="bg-gray-100 text-gray-600 text-sm px-2 py-1 rounded"
-                  >
-                    {material}
-                  </span>
-                ))}
-              </div>
-
-              {selectedRecycler?.id === recycler.id && (
-                <div className="mt-4 pt-4 border-t">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-sm mb-1">Operating Hours</h4>
-                      <p className="text-sm text-gray-600">{recycler.operating_hours}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm mb-1">Minimum Weight</h4>
-                      <p className="text-sm text-gray-600">{recycler.minimum_weight}kg</p>
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <h4 className="font-semibold text-sm mb-1">Services</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {recycler.service_offerings.map((service) => (
-                        <span
-                          key={service}
-                          className="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded"
-                        >
-                          {service}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+        {/* Map Section */}
+        <div className="mb-8 bg-white rounded-lg shadow-sm overflow-hidden">
+          <Map 
+            center={mapCenter}
+            zoom={mapZoom}
+            markers={validRecyclersForMap.map(recycler => ({
+              position: { lat: recycler.latitude, lng: recycler.longitude },
+              title: recycler.name
+            }))}
+          />
+          {selectedRecycler && (
+            <div className="p-4 border-t">
+              <button
+                onClick={handleMapReset}
+                className="text-sm text-purple-800 hover:text-purple-900"
+              >
+                ← View all facilities
+              </button>
             </div>
-          ))
-        )}
+          )}
+        </div>
+
+        {/* Search and Filters */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search recyclers..."
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <select
+            className="w-full px-4 py-2 border border-gray-200 rounded-lg"
+            value={selectedProvince}
+            onChange={(e) => setSelectedProvince(e.target.value)}
+          >
+            {provinces.map(province => (
+              <option key={province} value={province}>{province}</option>
+            ))}
+          </select>
+          <select
+            className="w-full px-4 py-2 border border-gray-200 rounded-lg"
+            value={selectedMaterial}
+            onChange={(e) => setSelectedMaterial(e.target.value)}
+          >
+            {materials.map(material => (
+              <option key={material} value={material}>{material}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Recyclers List */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {loading ? (
+            <div className="col-span-2 text-center py-12">
+              <p className="text-gray-600">Loading recyclers...</p>
+            </div>
+          ) : filteredRecyclers.length === 0 ? (
+            <div className="col-span-2 text-center py-12">
+              <p className="text-gray-600">No recyclers found matching your criteria.</p>
+            </div>
+          ) : (
+            filteredRecyclers.map((recycler) => (
+              <div
+                key={recycler.id}
+                className={`bg-white rounded-lg shadow-sm p-6 cursor-pointer transition-all ${
+                  selectedRecycler?.id === recycler.id ? 'ring-2 ring-purple-800' : ''
+                }`}
+                onClick={() => handleRecyclerClick(recycler)}
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-lg font-semibold">{recycler.name}</h3>
+                    <p className="text-gray-600">{recycler.description}</p>
+                  </div>
+                  {recycler.verified && (
+                    <span className="bg-green-100 text-green-600 text-sm px-2 py-1 rounded">
+                      Verified
+                    </span>
+                  )}
+                </div>
+
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-gray-600">
+                    <MapPin className="w-4 h-4 mr-2" />
+                    <span>{recycler.address}, {recycler.city}</span>
+                  </div>
+                  <div className="flex items-center text-gray-600">
+                    <Phone className="w-4 h-4 mr-2" />
+                    <span>{recycler.phone}</span>
+                  </div>
+                  <div className="flex items-center text-gray-600">
+                    <Mail className="w-4 h-4 mr-2" />
+                    <span>{recycler.email}</span>
+                  </div>
+                  {recycler.website && (
+                    <div className="flex items-center text-gray-600">
+                      <Globe className="w-4 h-4 mr-2" />
+                      <a 
+                        href={recycler.website.startsWith('http') ? recycler.website : `https://${recycler.website}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-purple-800 hover:text-purple-900"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {recycler.website}
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {recycler.materials.map((material) => (
+                    <span
+                      key={material}
+                      className="bg-gray-100 text-gray-600 text-sm px-2 py-1 rounded"
+                    >
+                      {material}
+                    </span>
+                  ))}
+                </div>
+
+                {selectedRecycler?.id === recycler.id && (
+                  <div className="mt-4 pt-4 border-t">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold text-sm mb-1">Operating Hours</h4>
+                        <p className="text-sm text-gray-600">{recycler.operating_hours}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm mb-1">Minimum Weight</h4>
+                        <p className="text-sm text-gray-600">{recycler.minimum_weight}kg</p>
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <h4 className="font-semibold text-sm mb-1">Services</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {recycler.service_offerings.map((service) => (
+                          <span
+                            key={service}
+                            className="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded"
+                          >
+                            {service}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
