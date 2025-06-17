@@ -91,8 +91,8 @@ const Pricing = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-8 -mt-8">
-        {/* Seller Pricing */}
-        <div className="mb-16">
+        {/* Seller Pricing - Added mt-12 to increase spacing */}
+        <div className="mb-16 mt-12">
           <div className="flex items-center gap-2 mb-8 justify-center">
             <Store className="w-6 h-6 text-[#FF3B81]" />
             <h2 className="text-2xl font-bold">For Sellers</h2>

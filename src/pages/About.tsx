@@ -329,27 +329,27 @@ const About = () => {
           </div>
         </div>
 
-        {/* Technology & Security */}
+        {/* Technology & Security - Changed to text-left for better bullet alignment */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
-            <h2 className="text-2xl font-bold mb-6">Our Technology</h2>
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <h2 className="text-2xl font-bold mb-6 text-center">Our Technology</h2>
             <ul className="space-y-4">
-              <li className="flex items-center justify-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Real-time Market Data</h3>
                   <p className="text-gray-600">Live pricing updates and market trends</p>
                 </div>
               </li>
-              <li className="flex items-center justify-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Smart Matching</h3>
                   <p className="text-gray-600">AI-powered buyer-seller matching system</p>
                 </div>
               </li>
-              <li className="flex items-center justify-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Mobile Integration</h3>
                   <p className="text-gray-600">Trade on-the-go with our mobile platform</p>
@@ -357,25 +357,25 @@ const About = () => {
               </li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
-            <h2 className="text-2xl font-bold mb-6">Security & Compliance</h2>
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <h2 className="text-2xl font-bold mb-6 text-center">Security & Compliance</h2>
             <ul className="space-y-4">
-              <li className="flex items-center justify-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Verified Users</h3>
                   <p className="text-gray-600">Strict verification process for all traders</p>
                 </div>
               </li>
-              <li className="flex items-center justify-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Secure Transactions</h3>
                   <p className="text-gray-600">Bank-grade security for all payments</p>
                 </div>
               </li>
-              <li className="flex items-center justify-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Regulatory Compliance</h3>
                   <p className="text-gray-600">Full compliance with SA recycling regulations</p>
