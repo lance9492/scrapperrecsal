@@ -274,123 +274,244 @@ const Marketplace = () => {
         </div>
       </div>
 
-      {/* Enhanced Navigation Tabs with Scroll Behavior - ALWAYS visible on ALL marketplace pages */}
+      {/* Enhanced Navigation Tabs with Beautiful Headers and Watermarks */}
       <div 
         className={`
-          sticky top-16 z-30 bg-white border-b border-gray-200 transition-transform duration-300 ease-in-out
+          sticky top-16 z-30 transition-transform duration-300 ease-in-out
           ${scrollDirection === 'down' && !isAtTop ? '-translate-y-full' : 'translate-y-0'}
         `}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex">
-              <Link
-                to="/marketplace"
-                className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
-                  location.pathname === '/marketplace'
-                    ? 'bg-[#FF3B81] text-white shadow-lg'
-                    : 'text-gray-600 hover:text-[#FF3B81] hover:bg-pink-50'
-                }`}
-              >
+          {/* Desktop Navigation with Beautiful Headers */}
+          <div className="hidden md:flex">
+            {/* Trading Tab */}
+            <Link
+              to="/marketplace"
+              className={`flex-1 relative overflow-hidden rounded-tl-xl rounded-tr-xl ${
+                location.pathname === '/marketplace'
+                  ? 'shadow-lg'
+                  : 'hover:bg-pink-50'
+              }`}
+            >
+              {/* Background with watermarks */}
+              <div className={`absolute inset-0 ${
+                location.pathname === '/marketplace'
+                  ? 'bg-gradient-to-r from-green-600 to-green-700'
+                  : 'bg-white'
+              }`}>
+                {/* Watermarks */}
+                {location.pathname === '/marketplace' && (
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-1 left-4 transform rotate-12">
+                      <Package className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="absolute bottom-1 right-4 transform -rotate-12">
+                      <Recycle className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="absolute top-2 right-1/3 transform rotate-45">
+                      <Package className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Content */}
+              <div className={`relative flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
+                location.pathname === '/marketplace'
+                  ? 'text-white'
+                  : 'text-gray-600 hover:text-green-600'
+              }`}>
                 <Package className="w-5 h-5" />
                 <span>Trading</span>
                 {location.pathname === '/marketplace' && (
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 )}
-              </Link>
-              <Link
-                to="/marketplace/prices"
-                className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
-                  location.pathname === '/marketplace/prices'
-                    ? 'bg-[#FF3B81] text-white shadow-lg'
-                    : 'text-gray-600 hover:text-[#FF3B81] hover:bg-pink-50'
-                }`}
-              >
+              </div>
+            </Link>
+            
+            {/* Live Prices Tab */}
+            <Link
+              to="/marketplace/prices"
+              className={`flex-1 relative overflow-hidden ${
+                location.pathname === '/marketplace/prices'
+                  ? 'shadow-lg'
+                  : 'hover:bg-pink-50'
+              }`}
+            >
+              {/* Background with watermarks */}
+              <div className={`absolute inset-0 ${
+                location.pathname === '/marketplace/prices'
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-700'
+                  : 'bg-white'
+              }`}>
+                {/* Watermarks */}
+                {location.pathname === '/marketplace/prices' && (
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-1 left-4 transform rotate-12">
+                      <LineChart className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="absolute bottom-1 right-4 transform -rotate-12">
+                      <Scale className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="absolute top-2 right-1/3 transform rotate-45">
+                      <LineChart className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Content */}
+              <div className={`relative flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
+                location.pathname === '/marketplace/prices'
+                  ? 'text-white'
+                  : 'text-gray-600 hover:text-blue-600'
+              }`}>
                 <LineChart className="w-5 h-5" />
                 <span>Live Prices</span>
                 {location.pathname === '/marketplace/prices' && (
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 )}
-              </Link>
-              <Link
-                to="/marketplace/materials"
-                className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
-                  location.pathname === '/marketplace/materials'
-                    ? 'bg-[#FF3B81] text-white shadow-lg'
-                    : 'text-gray-600 hover:text-[#FF3B81] hover:bg-pink-50'
-                }`}
-              >
+              </div>
+            </Link>
+            
+            {/* Materials Tab */}
+            <Link
+              to="/marketplace/materials"
+              className={`flex-1 relative overflow-hidden ${
+                location.pathname === '/marketplace/materials'
+                  ? 'shadow-lg'
+                  : 'hover:bg-pink-50'
+              }`}
+            >
+              {/* Background with watermarks */}
+              <div className={`absolute inset-0 ${
+                location.pathname === '/marketplace/materials'
+                  ? 'bg-gradient-to-r from-amber-600 to-amber-700'
+                  : 'bg-white'
+              }`}>
+                {/* Watermarks */}
+                {location.pathname === '/marketplace/materials' && (
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-1 left-4 transform rotate-12">
+                      <Package className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="absolute bottom-1 right-4 transform -rotate-12">
+                      <Cog className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="absolute top-2 right-1/3 transform rotate-45">
+                      <Wrench className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Content */}
+              <div className={`relative flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
+                location.pathname === '/marketplace/materials'
+                  ? 'text-white'
+                  : 'text-gray-600 hover:text-amber-600'
+              }`}>
                 <Package className="w-5 h-5" />
                 <span>Materials</span>
                 {location.pathname === '/marketplace/materials' && (
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 )}
-              </Link>
-              <Link
-                to="/marketplace/recyclers"
-                className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
-                  location.pathname === '/marketplace/recyclers'
-                    ? 'bg-[#FF3B81] text-white shadow-lg'
-                    : 'text-gray-600 hover:text-[#FF3B81] hover:bg-pink-50'
-                }`}
-              >
+              </div>
+            </Link>
+            
+            {/* Recyclers Tab */}
+            <Link
+              to="/marketplace/recyclers"
+              className={`flex-1 relative overflow-hidden rounded-tr-xl rounded-tl-xl ${
+                location.pathname === '/marketplace/recyclers'
+                  ? 'shadow-lg'
+                  : 'hover:bg-pink-50'
+              }`}
+            >
+              {/* Background with watermarks */}
+              <div className={`absolute inset-0 ${
+                location.pathname === '/marketplace/recyclers'
+                  ? 'bg-gradient-to-r from-purple-600 to-purple-700'
+                  : 'bg-white'
+              }`}>
+                {/* Watermarks */}
+                {location.pathname === '/marketplace/recyclers' && (
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-1 left-4 transform rotate-12">
+                      <Users className="w-8 h-8 text-white" />
+                    </div>
+                    <div className="absolute bottom-1 right-4 transform -rotate-12">
+                      <Truck className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="absolute top-2 right-1/3 transform rotate-45">
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Content */}
+              <div className={`relative flex items-center justify-center gap-3 px-6 py-4 text-sm font-medium transition-all duration-200 ${
+                location.pathname === '/marketplace/recyclers'
+                  ? 'text-white'
+                  : 'text-gray-600 hover:text-purple-600'
+              }`}>
                 <Users className="w-5 h-5" />
                 <span>Recyclers</span>
                 {location.pathname === '/marketplace/recyclers' && (
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 )}
-              </Link>
-            </div>
-
-            {/* Mobile Navigation - Fixed to prevent dropdown interference */}
-            <div className="md:hidden">
-              <div className="grid grid-cols-2 gap-px bg-gray-100">
-                <Link
-                  to="/marketplace"
-                  className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
-                    location.pathname === '/marketplace'
-                      ? 'bg-[#FF3B81] text-white'
-                      : 'bg-white text-gray-600 hover:text-[#FF3B81]'
-                  }`}
-                >
-                  <Package className="w-4 h-4" />
-                  <span>Trading</span>
-                </Link>
-                <Link
-                  to="/marketplace/prices"
-                  className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
-                    location.pathname === '/marketplace/prices'
-                      ? 'bg-[#FF3B81] text-white'
-                      : 'bg-white text-gray-600 hover:text-[#FF3B81]'
-                  }`}
-                >
-                  <LineChart className="w-4 h-4" />
-                  <span>Prices</span>
-                </Link>
-                <Link
-                  to="/marketplace/materials"
-                  className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
-                    location.pathname === '/marketplace/materials'
-                      ? 'bg-[#FF3B81] text-white'
-                      : 'bg-white text-gray-600 hover:text-[#FF3B81]'
-                  }`}
-                >
-                  <Package className="w-4 h-4" />
-                  <span>Materials</span>
-                </Link>
-                <Link
-                  to="/marketplace/recyclers"
-                  className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
-                    location.pathname === '/marketplace/recyclers'
-                      ? 'bg-[#FF3B81] text-white'
-                      : 'bg-white text-gray-600 hover:text-[#FF3B81]'
-                  }`}
-                >
-                  <Users className="w-4 h-4" />
-                  <span>Recyclers</span>
-                </Link>
               </div>
+            </Link>
+          </div>
+
+          {/* Mobile Navigation - Fixed to prevent dropdown interference */}
+          <div className="md:hidden">
+            <div className="grid grid-cols-2 gap-px bg-gray-100">
+              <Link
+                to="/marketplace"
+                className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
+                  location.pathname === '/marketplace'
+                    ? 'bg-gradient-to-r from-green-600 to-green-700 text-white'
+                    : 'bg-white text-gray-600 hover:text-green-600'
+                }`}
+              >
+                <Package className="w-4 h-4" />
+                <span>Trading</span>
+              </Link>
+              <Link
+                to="/marketplace/prices"
+                className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
+                  location.pathname === '/marketplace/prices'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white'
+                    : 'bg-white text-gray-600 hover:text-blue-600'
+                }`}
+              >
+                <LineChart className="w-4 h-4" />
+                <span>Prices</span>
+              </Link>
+              <Link
+                to="/marketplace/materials"
+                className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
+                  location.pathname === '/marketplace/materials'
+                    ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white'
+                    : 'bg-white text-gray-600 hover:text-amber-600'
+                }`}
+              >
+                <Package className="w-4 h-4" />
+                <span>Materials</span>
+              </Link>
+              <Link
+                to="/marketplace/recyclers"
+                className={`flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-all ${
+                  location.pathname === '/marketplace/recyclers'
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white'
+                    : 'bg-white text-gray-600 hover:text-purple-600'
+                }`}
+              >
+                <Users className="w-4 h-4" />
+                <span>Recyclers</span>
+              </Link>
             </div>
           </div>
         </div>
