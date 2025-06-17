@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import { ChevronDown, ChevronRight, LineChart, Package, Users, Truck, Scale, Clock, Shield, Search, Menu as MenuIcon, Plus } from 'lucide-react';
+import { ChevronDown, ChevronRight, LineChart, Package, Users, Truck, Scale, Clock, Shield, Search, Menu as MenuIcon, Plus, Recycle, Settings, Cog, Wrench, PenTool as Tool, Zap } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { CreateListing } from '../components/CreateListing';
 import { ListingCard } from '../components/ListingCard';
@@ -399,9 +399,79 @@ const Marketplace = () => {
         {/* Show main marketplace content only on the main page */}
         {isMainMarketplacePage ? (
           <>
-            {/* Recycle Under Us Section */}
-            <div className="bg-gradient-to-r from-[#1A1A1A] to-[#FF3B81] rounded-lg overflow-hidden mb-12">
-              <div className="p-8 text-white">
+            {/* Recycle Under Us Section with GREEN and BLACK gradient + Industrial Watermarks */}
+            <div className="relative bg-gradient-to-r from-black via-gray-900 to-green-600 rounded-lg overflow-hidden mb-12">
+              {/* Industrial watermarks background for RecycleMart */}
+              <div className="absolute inset-0 opacity-5">
+                {/* Recycling symbol watermarks */}
+                <div className="absolute top-8 left-12 transform rotate-15">
+                  <Recycle className="w-24 h-24 text-white" />
+                </div>
+                <div className="absolute top-32 right-20 transform -rotate-20">
+                  <Recycle className="w-32 h-32 text-white" />
+                </div>
+                <div className="absolute bottom-20 left-1/4 transform rotate-45">
+                  <Recycle className="w-20 h-20 text-white" />
+                </div>
+                <div className="absolute top-1/2 right-1/3 transform -rotate-30">
+                  <Recycle className="w-28 h-28 text-white" />
+                </div>
+                
+                {/* Container/bin watermarks */}
+                <div className="absolute top-16 left-1/3 transform -rotate-40">
+                  <Package className="w-26 h-26 text-white" />
+                </div>
+                <div className="absolute bottom-32 right-1/4 transform rotate-15">
+                  <Package className="w-36 h-36 text-white" />
+                </div>
+                <div className="absolute top-2/3 left-16 transform -rotate-10">
+                  <Package className="w-24 h-24 text-white" />
+                </div>
+                <div className="absolute bottom-12 right-12 transform rotate-50">
+                  <Package className="w-20 h-20 text-white" />
+                </div>
+                
+                {/* Truck/collection watermarks */}
+                <div className="absolute top-24 right-1/5 transform rotate-25">
+                  <Truck className="w-22 h-22 text-white" />
+                </div>
+                <div className="absolute bottom-40 left-1/2 transform -rotate-35">
+                  <Truck className="w-30 h-30 text-white" />
+                </div>
+                <div className="absolute top-1/3 right-8 transform rotate-65">
+                  <Truck className="w-18 h-18 text-white" />
+                </div>
+                
+                {/* Scale/weighing watermarks */}
+                <div className="absolute top-40 left-2/3 transform -rotate-25">
+                  <Scale className="w-20 h-20 text-white" />
+                </div>
+                <div className="absolute bottom-24 left-1/5 transform rotate-40">
+                  <Scale className="w-16 h-16 text-white" />
+                </div>
+                <div className="absolute top-1/5 right-2/3 transform -rotate-55">
+                  <Scale className="w-24 h-24 text-white" />
+                </div>
+                
+                {/* Additional recycling elements */}
+                <div className="absolute top-12 left-2/3 transform -rotate-12">
+                  <Recycle className="w-16 h-16 text-white" />
+                </div>
+                <div className="absolute bottom-16 left-20 transform rotate-70">
+                  <Package className="w-14 h-14 text-white" />
+                </div>
+                <div className="absolute top-2/5 right-1/2 transform -rotate-45">
+                  <Truck className="w-18 h-18 text-white" />
+                </div>
+                <div className="absolute bottom-1/3 right-1/5 transform rotate-30">
+                  <Scale className="w-22 h-22 text-white" />
+                </div>
+                <div className="absolute top-3/4 left-8 transform -rotate-20">
+                  <Recycle className="w-26 h-26 text-white" />
+                </div>
+              </div>
+
+              <div className="relative p-8 text-white">
                 <div className="mb-8">
                   <h2 className="text-2xl font-bold mb-2">Recycle Under Us</h2>
                   <p className="text-lg opacity-90">
@@ -422,7 +492,7 @@ const Marketplace = () => {
                       <h3 className="text-xl font-semibold mb-2">{container.type}</h3>
                       <p className="text-sm opacity-90 mb-2">Capacity: {container.capacity}</p>
                       <p className="text-sm opacity-90 mb-4">{container.description}</p>
-                      <p className="text-lg font-bold text-[#FF3B81]">{container.price}</p>
+                      <p className="text-lg font-bold text-green-400">{container.price}</p>
                     </div>
                   ))}
                 </div>
@@ -442,7 +512,7 @@ const Marketplace = () => {
                 <div className="text-center mt-8">
                   <button 
                     onClick={() => setShowRequestForm(true)}
-                    className="bg-white text-[#FF3B81] px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition"
+                    className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition"
                   >
                     Request Containers
                   </button>
