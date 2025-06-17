@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, Wrench, Cog, PenTool as Tool, Star, MapPin, Shield, Clock, Plus } from 'lucide-react';
+import { Truck, Wrench, Cog, PenTool as Tool, Star, MapPin, Shield, Clock, Plus, Settings, Zap } from 'lucide-react';
 import { CreateListing } from '../components/CreateListing';
 import { ListingCard } from '../components/ListingCard';
 import { supabase } from '../lib/supabaseClient';
@@ -92,6 +92,56 @@ const SalvageHub = () => {
     <div className="pt-24 pb-8">
       {/* Professional Header Section with pink and black gradient */}
       <div className="relative bg-gradient-to-br from-black via-gray-900 to-pink-600 overflow-hidden">
+        {/* Industrial watermarks background */}
+        <div className="absolute inset-0 opacity-5">
+          {/* Vehicle watermarks */}
+          <div className="absolute top-10 left-10 transform rotate-12">
+            <Truck className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute top-32 right-20 transform -rotate-12">
+            <Truck className="w-32 h-32 text-white" />
+          </div>
+          <div className="absolute bottom-20 left-1/4 transform rotate-45">
+            <Truck className="w-20 h-20 text-white" />
+          </div>
+          
+          {/* Engine/machinery watermarks */}
+          <div className="absolute top-20 left-1/3 transform -rotate-45">
+            <Settings className="w-28 h-28 text-white" />
+          </div>
+          <div className="absolute bottom-32 right-1/4 transform rotate-12">
+            <Settings className="w-36 h-36 text-white" />
+          </div>
+          <div className="absolute top-1/2 left-16 transform -rotate-12">
+            <Cog className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute bottom-10 right-10 transform rotate-45">
+            <Cog className="w-20 h-20 text-white" />
+          </div>
+          
+          {/* Mining equipment watermarks */}
+          <div className="absolute top-40 right-1/3 transform rotate-30">
+            <Zap className="w-26 h-26 text-white" />
+          </div>
+          <div className="absolute bottom-40 left-1/2 transform -rotate-30">
+            <Wrench className="w-30 h-30 text-white" />
+          </div>
+          <div className="absolute top-1/3 right-12 transform rotate-60">
+            <Tool className="w-22 h-22 text-white" />
+          </div>
+          
+          {/* Additional scattered elements */}
+          <div className="absolute top-16 left-2/3 transform -rotate-15">
+            <Wrench className="w-18 h-18 text-white" />
+          </div>
+          <div className="absolute bottom-16 left-20 transform rotate-75">
+            <Zap className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute top-2/3 right-1/2 transform -rotate-60">
+            <Settings className="w-22 h-22 text-white" />
+          </div>
+        </div>
+
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-pink-500/10 to-transparent"></div>
