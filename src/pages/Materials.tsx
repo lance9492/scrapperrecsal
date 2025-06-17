@@ -324,52 +324,54 @@ const MaterialImage = ({ image }: { image: string }) => {
 
 const Materials = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
-      <div className="text-center mb-12">
-        <h1 className="text-2xl font-bold mb-2">Recyclable Materials Guide</h1>
-        <p className="text-gray-600">
-          Learn about different types of recyclable materials and their grades.
-        </p>
-      </div>
+    <div className="pt-24 pb-8"> {/* Added pt-24 for navbar spacing */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="text-center mb-12">
+          <h1 className="text-2xl font-bold mb-2">Recyclable Materials Guide</h1>
+          <p className="text-gray-600">
+            Learn about different types of recyclable materials and their grades.
+          </p>
+        </div>
 
-      <div className="space-y-16">
-        {materials.map((material) => (
-          <div key={material.name} className="bg-white rounded-lg shadow-sm overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-3">
-              <MaterialImage image={material.image} />
-              <div className="col-span-2 p-8">
-                <h2 className="text-2xl font-bold mb-2">{material.name}</h2>
-                <p className="text-gray-600 mb-6">{material.description}</p>
-                <div className="space-y-8">
-                  {material.grades.map((grade) => (
-                    <div key={grade.name} className="border-b border-gray-100 pb-6">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h3 className="font-semibold">{grade.name}</h3>
-                        <span className={`px-2 py-0.5 text-xs rounded ${
-                          grade.grade === 'A+' ? 'bg-purple-100 text-purple-800' :
-                          grade.grade === 'A' ? 'bg-green-100 text-green-600' :
-                          grade.grade === 'B' ? 'bg-blue-100 text-blue-600' :
-                          'bg-gray-100 text-gray-600'
-                        }`}>
-                          Grade {grade.grade}
-                        </span>
+        <div className="space-y-16">
+          {materials.map((material) => (
+            <div key={material.name} className="bg-white rounded-lg shadow-sm overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-3">
+                <MaterialImage image={material.image} />
+                <div className="col-span-2 p-8">
+                  <h2 className="text-2xl font-bold mb-2">{material.name}</h2>
+                  <p className="text-gray-600 mb-6">{material.description}</p>
+                  <div className="space-y-8">
+                    {material.grades.map((grade) => (
+                      <div key={grade.name} className="border-b border-gray-100 pb-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="font-semibold">{grade.name}</h3>
+                          <span className={`px-2 py-0.5 text-xs rounded ${
+                            grade.grade === 'A+' ? 'bg-purple-100 text-purple-800' :
+                            grade.grade === 'A' ? 'bg-green-100 text-green-600' :
+                            grade.grade === 'B' ? 'bg-blue-100 text-blue-600' :
+                            'bg-gray-100 text-gray-600'
+                          }`}>
+                            Grade {grade.grade}
+                          </span>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-4">{grade.description}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                          {grade.examples.map((example, index) => (
+                            <div key={index} className="flex items-center text-sm text-gray-600">
+                              <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2"></span>
+                              {example}
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <p className="text-sm text-gray-600 mb-4">{grade.description}</p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {grade.examples.map((example, index) => (
-                          <div key={index} className="flex items-center text-sm text-gray-600">
-                            <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2"></span>
-                            {example}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
