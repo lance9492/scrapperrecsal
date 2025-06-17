@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, BarChart3, Zap, ShieldCheck, Truck, Settings, Cog, Wrench, PenTool as Tool, Target, Globe, Leaf, Scale, Star, CheckCircle } from 'lucide-react';
+import { Users, BarChart3, Zap, ShieldCheck, Truck, Settings, Cog, Wrench, PenTool as Tool, Target, Globe, Leaf, Scale, Star, CheckCircle, Recycle, Package } from 'lucide-react';
 import { MarketInsights } from '../components/MarketInsights';
 
 const Home = () => {
@@ -113,38 +113,141 @@ const Home = () => {
       {/* Market Insights Section */}
       <MarketInsights />
 
-      {/* WHY CHOOSE SCRAPPER - VIBRANT COLORFUL SECTION! */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-500 relative overflow-hidden">
-        {/* Animated background elements */}
+      {/* WHY CHOOSE SCRAPPER - PINK & BLACK 2-TONE WITH INDUSTRIAL WATERMARKS! */}
+      <section className="relative py-20 overflow-hidden">
+        {/* EPIC Pink & Black Gradient Background with Fade Effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-green-400/10 rounded-full blur-xl animate-pulse delay-500"></div>
+          {/* Main gradient background */}
+          <div className="h-full w-full bg-gradient-to-br from-black via-gray-900 to-pink-600"></div>
+          
+          {/* Fade overlay effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-pink-600/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-transparent"></div>
+          
+          {/* Border fade effects */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-px bg-gradient-to-b from-transparent via-pink-400 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-pink-400 to-transparent"></div>
+        </div>
+
+        {/* INDUSTRIAL WATERMARKS - Recycling & Manufacturing Theme */}
+        <div className="absolute inset-0 opacity-5">
+          {/* Recycling symbol watermarks */}
+          <div className="absolute top-8 left-12 transform rotate-15">
+            <Recycle className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute top-32 right-20 transform -rotate-20">
+            <Recycle className="w-32 h-32 text-white" />
+          </div>
+          <div className="absolute bottom-20 left-1/4 transform rotate-45">
+            <Recycle className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute top-1/2 right-1/3 transform -rotate-30">
+            <Recycle className="w-28 h-28 text-white" />
+          </div>
+          
+          {/* Container/packaging watermarks */}
+          <div className="absolute top-16 left-1/3 transform -rotate-40">
+            <Package className="w-26 h-26 text-white" />
+          </div>
+          <div className="absolute bottom-32 right-1/4 transform rotate-15">
+            <Package className="w-36 h-36 text-white" />
+          </div>
+          <div className="absolute top-2/3 left-16 transform -rotate-10">
+            <Package className="w-24 h-24 text-white" />
+          </div>
+          <div className="absolute bottom-12 right-12 transform rotate-50">
+            <Package className="w-20 h-20 text-white" />
+          </div>
+          
+          {/* Truck/logistics watermarks */}
+          <div className="absolute top-24 right-1/5 transform rotate-25">
+            <Truck className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute bottom-40 left-1/2 transform -rotate-35">
+            <Truck className="w-30 h-30 text-white" />
+          </div>
+          <div className="absolute top-1/3 right-8 transform rotate-65">
+            <Truck className="w-18 h-18 text-white" />
+          </div>
+          
+          {/* Scale/weighing watermarks */}
+          <div className="absolute top-40 left-2/3 transform -rotate-25">
+            <Scale className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute bottom-24 left-1/5 transform rotate-40">
+            <Scale className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute top-1/5 right-2/3 transform -rotate-55">
+            <Scale className="w-24 h-24 text-white" />
+          </div>
+          
+          {/* Industrial machinery watermarks */}
+          <div className="absolute top-12 left-2/3 transform -rotate-12">
+            <Settings className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute bottom-16 left-20 transform rotate-70">
+            <Cog className="w-14 h-14 text-white" />
+          </div>
+          <div className="absolute top-2/5 right-1/2 transform -rotate-45">
+            <Wrench className="w-18 h-18 text-white" />
+          </div>
+          <div className="absolute bottom-1/3 right-1/5 transform rotate-30">
+            <Tool className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute top-3/4 left-8 transform -rotate-20">
+            <Zap className="w-26 h-26 text-white" />
+          </div>
+          
+          {/* Additional scattered elements for depth */}
+          <div className="absolute top-1/6 left-1/5 transform rotate-80">
+            <Recycle className="w-18 h-18 text-white" />
+          </div>
+          <div className="absolute bottom-1/6 right-1/6 transform -rotate-25">
+            <Package className="w-22 h-22 text-white" />
+          </div>
+          <div className="absolute top-5/6 right-2/5 transform rotate-35">
+            <Scale className="w-20 h-20 text-white" />
+          </div>
+          <div className="absolute top-1/4 left-1/6 transform -rotate-60">
+            <Truck className="w-16 h-16 text-white" />
+          </div>
+          <div className="absolute bottom-2/5 left-3/4 transform rotate-15">
+            <Settings className="w-24 h-24 text-white" />
+          </div>
+        </div>
+
+        {/* Animated floating elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-pink-300/10 rounded-full blur-xl animate-pulse delay-500"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4">
           {/* Section header with explosive styling */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl mb-6 shadow-2xl transform rotate-12 hover:rotate-0 transition-transform duration-500">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl mb-6 shadow-2xl transform rotate-12 hover:rotate-0 transition-transform duration-500 border border-pink-400/30">
               <Star className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
               Why Choose 
-              <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent"> Scrapper</span>?
+              <span className="bg-gradient-to-r from-pink-300 via-pink-200 to-white bg-clip-text text-transparent"> Scrapper</span>?
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-yellow-400 via-pink-400 to-cyan-400 mx-auto mb-6 rounded-full shadow-lg"></div>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <div className="w-32 h-1 bg-gradient-to-r from-pink-400 via-pink-300 to-white mx-auto mb-6 rounded-full shadow-lg"></div>
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed">
               Join South Africa's most comprehensive platform for recycling and salvage materials.
             </p>
           </div>
 
-          {/* Colorful feature cards */}
+          {/* Colorful feature cards with pink accents */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Card 1 - Electric Blue */}
+            {/* Card 1 - Pink Accent */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-blue-200">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-pink-200">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <ShieldCheck className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Secure Trading</h3>
@@ -154,11 +257,11 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Card 2 - Vibrant Green */}
+            {/* Card 2 - Black Accent */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-green-200">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-black rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-gray-200">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Large Network</h3>
@@ -168,11 +271,11 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Card 3 - Golden Yellow */}
+            {/* Card 3 - Pink Accent */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-yellow-200">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-pink-200">
+                <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <BarChart3 className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Best Prices</h3>
@@ -182,11 +285,11 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Card 4 - Electric Purple */}
+            {/* Card 4 - Black Accent */}
             <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-purple-200">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-black rounded-2xl blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative bg-white p-8 rounded-2xl shadow-xl transform group-hover:scale-105 transition-all duration-300 border-2 border-gray-200">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Zap className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Fast Transactions</h3>
