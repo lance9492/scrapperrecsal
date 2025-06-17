@@ -110,8 +110,8 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Vision & Mission */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 -mt-8">
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
               <Target className="w-6 h-6 text-[#FF3B81]" />
               <h2 className="text-2xl font-bold">Our Vision</h2>
             </div>
@@ -119,8 +119,8 @@ const About = () => {
               To become Africa's leading digital platform for sustainable material trading, driving the circular economy and creating economic opportunities through innovative technology.
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-8">
-            <div className="flex items-center gap-3 mb-4">
+          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
               <Globe className="w-6 h-6 text-[#FF3B81]" />
               <h2 className="text-2xl font-bold">Our Mission</h2>
             </div>
@@ -195,13 +195,13 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-pink-400 to-pink-600 opacity-0 group-hover:opacity-100 rounded-xl blur transition-opacity duration-300"></div>
                 
                 {/* Card content */}
-                <div className="relative bg-white rounded-xl p-6 shadow-lg border border-pink-100 group-hover:border-pink-300 transition-colors duration-300">
+                <div className="relative bg-white rounded-xl p-6 shadow-lg border border-pink-100 group-hover:border-pink-300 transition-colors duration-300 text-center">
                   <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Lightbulb className="w-5 h-5 text-white" />
                   </div>
                   
                   <div className="pt-6">
-                    <h3 className="text-xl font-bold text-center mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent group-hover:from-pink-500 group-hover:to-pink-700 transition-all duration-300">Innovation</h3>
+                    <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent group-hover:from-pink-500 group-hover:to-pink-700 transition-all duration-300">Innovation</h3>
                     
                     <p className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
                       We continuously innovate to make recycling more efficient and accessible through technology.
@@ -209,15 +209,15 @@ const About = () => {
                     
                     {/* Animated checkmarks that appear on hover */}
                     <div className="mt-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-pink-500" />
                         <span className="text-sm text-gray-700">Cutting-edge platform</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-pink-500" />
                         <span className="text-sm text-gray-700">Real-time market data</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-pink-500" />
                         <span className="text-sm text-gray-700">Continuous improvement</span>
                       </div>
@@ -236,13 +236,13 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-green-400 to-teal-600 opacity-0 group-hover:opacity-100 rounded-xl blur transition-opacity duration-300"></div>
                 
                 {/* Card content */}
-                <div className="relative bg-white rounded-xl p-6 shadow-lg border border-green-100 group-hover:border-green-300 transition-colors duration-300">
+                <div className="relative bg-white rounded-xl p-6 shadow-lg border border-green-100 group-hover:border-green-300 transition-colors duration-300 text-center">
                   <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Leaf className="w-5 h-5 text-white" />
                   </div>
                   
                   <div className="pt-6">
-                    <h3 className="text-xl font-bold text-center mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent group-hover:from-green-500 group-hover:to-teal-500 transition-all duration-300">Sustainability</h3>
+                    <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent group-hover:from-green-500 group-hover:to-teal-500 transition-all duration-300">Sustainability</h3>
                     
                     <p className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
                       We're committed to promoting sustainable practices and reducing environmental impact.
@@ -250,15 +250,15 @@ const About = () => {
                     
                     {/* Animated checkmarks that appear on hover */}
                     <div className="mt-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
                         <span className="text-sm text-gray-700">Eco-friendly operations</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
                         <span className="text-sm text-gray-700">Carbon footprint reduction</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
                         <span className="text-sm text-gray-700">Circular economy focus</span>
                       </div>
@@ -277,13 +277,13 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-600 opacity-0 group-hover:opacity-100 rounded-xl blur transition-opacity duration-300"></div>
                 
                 {/* Card content */}
-                <div className="relative bg-white rounded-xl p-6 shadow-lg border border-blue-100 group-hover:border-blue-300 transition-colors duration-300">
+                <div className="relative bg-white rounded-xl p-6 shadow-lg border border-blue-100 group-hover:border-blue-300 transition-colors duration-300 text-center">
                   <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
                   
                   <div className="pt-6">
-                    <h3 className="text-xl font-bold text-center mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-300">Integrity</h3>
+                    <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent group-hover:from-blue-500 group-hover:to-indigo-500 transition-all duration-300">Integrity</h3>
                     
                     <p className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
                       We maintain the highest standards of transparency and ethical business practices.
@@ -291,15 +291,15 @@ const About = () => {
                     
                     {/* Animated checkmarks that appear on hover */}
                     <div className="mt-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-blue-500" />
                         <span className="text-sm text-gray-700">Transparent operations</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-blue-500" />
                         <span className="text-sm text-gray-700">Honest communication</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center justify-center gap-2">
                         <CheckCircle className="w-4 h-4 text-blue-500" />
                         <span className="text-sm text-gray-700">Ethical business conduct</span>
                       </div>
@@ -331,25 +331,25 @@ const About = () => {
 
         {/* Technology & Security */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-lg shadow-sm p-8">
+          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
             <h2 className="text-2xl font-bold mb-6">Our Technology</h2>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
+              <li className="flex items-center justify-center">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Real-time Market Data</h3>
                   <p className="text-gray-600">Live pricing updates and market trends</p>
                 </div>
               </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
+              <li className="flex items-center justify-center">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Smart Matching</h3>
                   <p className="text-gray-600">AI-powered buyer-seller matching system</p>
                 </div>
               </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
+              <li className="flex items-center justify-center">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Mobile Integration</h3>
                   <p className="text-gray-600">Trade on-the-go with our mobile platform</p>
@@ -357,25 +357,25 @@ const About = () => {
               </li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-8">
+          <div className="bg-white rounded-lg shadow-sm p-8 text-center">
             <h2 className="text-2xl font-bold mb-6">Security & Compliance</h2>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
+              <li className="flex items-center justify-center">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Verified Users</h3>
                   <p className="text-gray-600">Strict verification process for all traders</p>
                 </div>
               </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
+              <li className="flex items-center justify-center">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Secure Transactions</h3>
                   <p className="text-gray-600">Bank-grade security for all payments</p>
                 </div>
               </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3"></span>
+              <li className="flex items-center justify-center">
+                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                 <div>
                   <h3 className="font-semibold mb-1">Regulatory Compliance</h3>
                   <p className="text-gray-600">Full compliance with SA recycling regulations</p>
